@@ -1,4 +1,4 @@
-//let userInput = promp('Rock, Paper or Scissors, let\'s go!'));
+//let userInput = prompt('Rock, Paper or Scissors, let\'s go!'));
 
 const rock = 0;
 const paper = 1;
