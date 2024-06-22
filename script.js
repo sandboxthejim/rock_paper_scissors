@@ -1,15 +1,8 @@
-//let userInput = prompt('Rock, Paper or Scissors, let\'s go!'));
+//step 2 write the logic to get the computer choice
 
-const rock = 0;
-const paper = 1;
-const scissors = 2;
-let max = 3;
-function getComputerChoice(max){
-    return Math.floor(Math.random()*max);
+function getComputerChoice(){
+    let choices = ["rock", "paper", "scissors"];
+    let randomChoices = Math.floor(Math.random()*choices.length);
+    return choices[randomChoices];
 }
-if(getComputerChoice(max) == rock){
-    console.log('Rock');
-} else if (getComputerChoice(max) == paper){
-    console.log('Paper');
-} else {console.log('Scissors')};
-
+// console.log(getComputerChoice());
