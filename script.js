@@ -19,8 +19,8 @@ function getHumanChoice(){
 // console.log(getHumanChoice());
 
 //step 4 Declare the players score variables
-let humanScore = 0;
-let computerScore = 0;
+// let humanScore = 0;
+// let computerScore = 0;
 
 
 
@@ -37,15 +37,36 @@ function playRound(humanChoice, computerChoice){
         (humanChoice === "scissors" && computerChoice === "paper")){
             result = "win";
         } else {result = "lose"}
+
         if (result === "win"){
             console.log(`Awesome! Your ${humanChoice.at(0)+humanChoice.slice(1)} beats ${computerChoice.at(0)+computerChoice.slice(1)}.`);
-            humanScore++;
+            return "win";
         } else if (result === "lose"){
             console.log(`Unlucky! Your ${humanChoice.at(0)+humanChoice.slice(1)} was defeated by ${computerChoice.at(0)+computerChoice.slice(1)}.`);
-            computerScore++;
+            return "lose";
         }
 }
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
-console.log(`Your score is ${humanScore} & BOT's score is ${computerScore}`);
+
+
+//step 6 Write the logic to play the entire game
+
+function playGame(){
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5 ; i++){
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        const result = playRound(humanChoice, computerChoice);
+
+
+        if (result === "win"){
+            humanScore++;
+        } else if(result === "lose"){
+            computerScore++;
+        }
+    }
+    console.log(`Final scores: Human:${humanScore}, Computer: ${computerScore}`);
+        }
+        
+playGame();
