@@ -17,3 +17,35 @@ function getHumanChoice(){
     return userInput;
 }
 // console.log(getHumanChoice());
+
+//step 4 Declare the players score variables
+let humanScore = 0;
+let computerScore = 0;
+
+
+
+// step 5  Write the logic to play a single round
+function playRound(humanChoice, computerChoice){
+
+    if (humanChoice === computerChoice){
+        console.log("It's a tie!");
+        return "tie";
+    }
+    let result;
+    if ((humanChoice === "rock" && computerChoice === "scissors")||
+        (humanChoice === "paper" && computerChoice === "rock")||
+        (humanChoice === "scissors" && computerChoice === "paper")){
+            result = "win";
+        } else {result = "lose"}
+        if (result === "win"){
+            console.log(`Awesome! Your ${humanChoice.at(0)+humanChoice.slice(1)} beats ${computerChoice.at(0)+computerChoice.slice(1)}.`);
+            humanScore++;
+        } else if (result === "lose"){
+            console.log(`Unlucky! Your ${humanChoice.at(0)+humanChoice.slice(1)} was defeated by ${computerChoice.at(0)+computerChoice.slice(1)}.`);
+            computerScore++;
+        }
+}
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+playRound(humanChoice, computerChoice);
+console.log(`Your score is ${humanScore} & BOT's score is ${computerScore}`);
